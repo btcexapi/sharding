@@ -1,6 +1,6 @@
-module gorm.io/sharding
+module github.com/btcexapi/sharding
 
-go 1.21
+go 1.23.5
 
 require (
 	github.com/bwmarrin/snowflake v0.3.0

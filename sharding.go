@@ -101,6 +101,9 @@ type Config struct {
 	//		return nodes[tableIdx].Generate().Int64()
 	//	}
 	PrimaryKeyGeneratorFn func(tableIdx int64) int64
+
+	// PluginName
+	PluginName string
 }
 
 func Register(config Config, tables ...any) *Sharding {
@@ -224,7 +227,7 @@ func (s *Sharding) compile() error {
 
 // Name plugin name for Gorm plugin interface
 func (s *Sharding) Name() string {
-	return "gorm:sharding"
+	return "gorm:sharding" + s._config.PluginName
 }
 
 // LastQuery get last SQL query
